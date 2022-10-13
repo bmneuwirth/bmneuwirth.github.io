@@ -106,7 +106,7 @@ footer a:hover {
     body {
         padding-top: 5px;
         grid-template-columns: auto;
-        grid-template-rows: minmax(50px, auto) minmax(30px, auto) auto auto;
+        grid-template-rows: auto auto auto auto;
         grid-template-areas:
         "header"
         "nav"
