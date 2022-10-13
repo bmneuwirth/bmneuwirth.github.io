@@ -1,0 +1,131 @@
+:root { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  :root { font-family: 'Inter var', sans-serif; }
+}
+
+@media screen and (max-width: 430px) {
+    body {
+        grid-template-columns: auto;
+        grid-template-rows: minmax(50px, auto) minmax(30px, auto) auto auto;
+        grid-template-areas:
+        "header"
+        "nav"
+        "ct"
+        "footer"
+    }
+    header {
+        text-align: center;
+        justify-self: center;
+    }
+}
+
+body {
+    margin: 0 auto;
+    max-width: 700px;
+    min-width: 0;
+    padding: 40px 10px 10px 25px;
+    font-family: "Inter", "Helvetica", sans-serif;
+    color: #444;
+    background-color: #FAF9F6;
+    display: grid;
+    row-gap: 5px;
+    grid-template-columns: auto auto;
+    grid-template-rows: 60px auto;
+    grid-template-areas:
+        "header header"
+        "ct ct"
+        "footer footer"
+}
+header {
+    margin: 0px;
+    font-size: 62px;
+    grid-area: header;
+    justify-self: center;
+    align-self: end;
+    font-weight:900;
+}
+article {
+    font-size: 16px;
+    grid-area: ct;
+    border-top: 2px solid gray;
+}
+h1 {
+    font-size: 32px;
+    font-weight: 900;
+}
+h2 {
+    font-size: 23px;
+    margin-top: 1em;
+}
+a {
+    color: #ffa64d;
+}
+#about {
+    background-color: #CCC;
+    padding: 5px 25px 5px;
+    margin: 5px 0px 0px 0px;
+}
+
+#Pulse img {
+    width: 33%;
+}
+
+#Website img {
+    width: 50%;
+    border: 2px solid gray;
+}
+
+#OpenGL img {
+    width: 50%;
+}
+
+.gallery img {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+}
+
+.pTitle {
+    font-weight: 900;
+    width: 100%;
+    text-align: center;
+    font-size: 36px;
+}
+
+#Website h2 {
+    margin-bottom: 10px;
+}
+
+footer {
+    padding-bottom: 10px;
+    overflow: auto;
+    width: 100%;
+    border-top: 2px solid gray;
+}
+
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+
+footer a {
+    color: #444;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ffa64d;
+}
+
+.fa {
+    vertical-align: middle;
+    padding-top: 1em;
+    padding-left: 10px;
+    padding-right: 1px;
+}

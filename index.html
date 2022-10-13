@@ -1,483 +1,79 @@
-<!DOCTYPE HTML>
-<!--
-	Read Only by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Ben Neuwirth Tutoring</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Ben Neuwirth</title>
+        <meta name="description" content="Ben Neuwirth's personal website">
+        <meta name="author" content="Ben Neuwirth">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="preconnect" href="https://rsms.me/">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <header>
+            Ben Neuwirth
+        </header>
+        <article>
+            <div id="about">
+                <h2>About</h1>
+                <p> Hi! I'm Ben, a Cornell sophomore studying computer science with an intended minor in game design. 
+                    I do research at the Cornell Program of Computer Graphics, investigating the intersection 
+                    of visual perception, virtual reality, and eye tracking. Right now, I'm trying to get a handle on
+                    graphics fundamentals and 3D game development. This site displays some of the projects
+                    I've worked on outside of class. Thanks for checking it out! </p>
 
-		<!-- Header -->
-			<section id="header">
-				<header>
-					<span class="image avatar"><img src="images/profile.jpg" alt="" /></span>
-					<h1 id="logo"><a href="#">Ben Neuwirth</a></h1>
-					<p></p>
-				</header>
-				<nav id="nav">
-					<ul>
-						<li><a href="#one" class="active">About</a></li>
-						<li><a href="#two">Tutoring</a></li>
-						<!-- <li><a href="#three">A Few Accomplishments</a></li> -->
-						<li><a href="#four">Contact Me</a></li>
-					</ul>
-				</nav>
-				<footer>
-					<ul class="icons">
-						<li><a href="mailto:bmneuwirth@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-				</footer>
-			</section>
+            </div>
+            <div id="projects">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+            <div id="OpenGL">
+            <h2 class="pTitle">OpenGL App</h2>
+            <div class="gallery">
+                <img src="images/GIF1.gif" alt="Ground perspective of simple cube world in OpenGL"/>
+                <img src="images/GIF2.gif" alt="Overhead perspective of simple cube world in OpenGL"/>
+            </div>
+            <p>I've been learning some OpenGL to help me get a better understanding of the 3D graphics pipeline.
+                This project was created from scratch with OpenGL and C++. It uses Perlin noise to generate a small 
+                world of cubes that can be explored from a first-person perspective with WASD and mouse controls.
+            </p>
+            <p>
+                I'm interested in making my own small 3D games in OpenGL, since I'll get a better
+                understanding of what goes on under the hood than if I used Unity or Unreal. I'm currently learning
+                more about OpenGL and game engines so I can make more complex projects. 
+            </p>
+            </div>
 
-				<!-- Main -->
-					<div id="main">
+            <div id="Pulse">
+            <h2 class="pTitle">Pulse</h2>
+            <div class="gallery">
+                <img src="images/Pulse1.jpg" alt="Pulse app splash screen"/>
+                <img src="images/Pulse2.jpg" alt="Pulse authentication screen"/>
+                <img src="images/Pulse3.jpg" alt="Pulse playlist view screen"/>
+            </div>
+            <p>
+                Pulse is an iOS app created in a group of 5 for the 2021 AppDev Hack Challenge at Cornell.
+                The idea is to provide insights on user listening habits for a specific community, like a college
+                campus, to help with music discovery. I focused on front-end development in Swift, working on connecting to the 
+                Spotify API and handling account authentication, sending user data to a Heroku app, and turning the data into playlists.
+            </p>
+            </div>
 
-						<!-- One -->
-							<section id="one">
-								<div class="image main" data-position="center">
-									<img src="images/banner.jpg" alt="" />
-								</div>
-								<div class="container">
-									<header class="major">
-										<h2>Ben Neuwirth Tutoring</h2>
-									</header>
-									<h3>About</h3>
-									<p>Hi! My name is Ben Neuwirth. I just graduated from Maggie Walker and am taking a gap year before I go to Cornell University in Fall 2021. In the meantime, I’ll be tutoring students in the Richmond area to help them keep up with the virtual start to the school year.</p>
-
-									<p>As a member of Mu Alpha Theta (the Math honor society), I spent 2 years as a volunteer tutor at Maggie Walker, and I’ve taught computer classes at Libbie Mill Library as an intern there, so I have experience teaching others.  See below for more information about what I can help with!</p>
-								</div>
-							</section>
-
-						<!-- Two -->
-							<section id="two">
-								<div class="container">
-									<h3>Tutoring</h3>
-									<p>I am available to tutor in a variety of subjects: Math (up to Multivariable Calculus), Biology, Chemistry, Physics, English, Spanish, or SAT Prep. I scored a 1580 on the SAT and have gotten a 5 on the following APs: Statistics, Calculus BC, Chemistry, U.S. History, English Language, and Spanish Language, so I can help to prepare for those exams in particular.  I have also taken AP Physics and AP Government classes, but didn’t take the exams.</p>
-									<ul class="feature-icons">
-										<li class="icon solid fa-plus">Math through Multivariable Calculus</li>
-										<li class="icon solid fa-book">English</li>
-										<li class="icon solid fa-comment">Spanish</li>
-										<li class="icon solid fa-flask">Science</li>
-										<li class="icon solid fa-code">Computer Science</li>
-										<li class="icon solid fa-pencil-alt">SAT Prep</li>
-									</ul>
-								</div>
-							</section>
-
-						<!-- Three -->
-							<!-- <section id="three">
-								<div class="container">
-									<h3>A Few Accomplishments</h3>
-									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
-									<div class="features">
-										<article>
-											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-											<div class="inner">
-												<h4>Possibly broke spacetime</h4>
-												<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
-											</div>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-											<div class="inner">
-												<h4>Terraformed a small moon</h4>
-												<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
-											</div>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-											<div class="inner">
-												<h4>Snapped dark matter in the wild</h4>
-												<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
-											</div>
-										</article>
-									</div>
-								</div>
-							</section> -->
-
-						<!-- Four -->
-							<section id="four">
-								<div class="container">
-									<h3>Contact Me</h3>
-									<p>Want to sign up for tutoring or ask me some questions?  Send me a message through this form or reach out to me via email at <a href="mailto:bmneuwirth@gmail.com">bmneuwirth@gmail.com!</a> Due to coronavirus, I am currently able to tutor virtually over Zoom or in-person in some circumstances. I am available all day on weekdays. If you're interested,  let me know what you’re looking for and what times work for you!</p>
-									<form method="post" action="https://formspree.io/xqkyoegw">
-										<div class="row gtr-uniform">
-											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
-											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
-											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
-											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
-											<div class="col-12">
-												<ul class="actions">
-													<li><input type="submit" class="primary" value="Send Message" /></li>
-													<li><input type="reset" value="Reset Form" /></li>
-												</ul>
-											</div>
-										</div>
-									</form>
-								</div>
-							</section>
-
-						<!-- Five -->
-						<!--
-							<section id="five">
-								<div class="container">
-									<h3>Elements</h3>
-
-									<section>
-										<h4>Text</h4>
-										<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-										This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-										This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-										<hr />
-										<header>
-											<h4>Heading with a Subtitle</h4>
-											<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-										</header>
-										<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-										<header>
-											<h5>Heading with a Subtitle</h5>
-											<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-										</header>
-										<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-										<hr />
-										<h2>Heading Level 2</h2>
-										<h3>Heading Level 3</h3>
-										<h4>Heading Level 4</h4>
-										<h5>Heading Level 5</h5>
-										<h6>Heading Level 6</h6>
-										<hr />
-										<h5>Blockquote</h5>
-										<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-										<h5>Preformatted</h5>
-										<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-									</section>
-
-									<section>
-										<h4>Lists</h4>
-										<div class="row">
-											<div class="col-6 col-12-xsmall">
-												<h5>Unordered</h5>
-												<ul>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Sagittis adipiscing lorem eleifend.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ul>
-												<h5>Alternate</h5>
-												<ul class="alt">
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Sagittis adipiscing lorem eleifend.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ul>
-											</div>
-											<div class="col-6 col-12-xsmall">
-												<h5>Ordered</h5>
-												<ol>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Etiam vel felis at lorem sed viverra.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Etiam vel felis at lorem sed viverra.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ol>
-												<h5>Icons</h5>
-												<ul class="icons">
-													<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-													<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-													<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-													<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-													<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-													<li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
-												</ul>
-											</div>
-										</div>
-										<h5>Actions</h5>
-										<ul class="actions">
-											<li><a href="#" class="button primary">Default</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt">Default</a></li>
-										</ul>
-										<ul class="actions small">
-											<li><a href="#" class="button primary small">Small</a></li>
-											<li><a href="#" class="button small">Small</a></li>
-											<li><a href="#" class="button alt small">Small</a></li>
-										</ul>
-										<div class="row">
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary">Default</a></li>
-													<li><a href="#" class="button">Default</a></li>
-													<li><a href="#" class="button alt">Default</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6 col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary small">Small</a></li>
-													<li><a href="#" class="button small">Small</a></li>
-													<li><a href="#" class="button alt small">Small</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary fit">Default</a></li>
-													<li><a href="#" class="button fit">Default</a></li>
-													<li><a href="#" class="button alt fit">Default</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary small fit">Small</a></li>
-													<li><a href="#" class="button small fit">Small</a></li>
-													<li><a href="#" class="button alt small fit">Small</a></li>
-												</ul>
-											</div>
-										</div>
-									</section>
-
-									<section>
-										<h4>Table</h4>
-										<h5>Default</h5>
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Name</th>
-														<th>Description</th>
-														<th>Price</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Item One</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Two</td>
-														<td>Vis ac commodo adipiscing arcu aliquet.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Three</td>
-														<td> Morbi faucibus arcu accumsan lorem.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Four</td>
-														<td>Vitae integer tempus condimentum.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Five</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-												</tbody>
-												<tfoot>
-													<tr>
-														<td colspan="2"></td>
-														<td>100.00</td>
-													</tr>
-												</tfoot>
-											</table>
-										</div>
-
-										<h5>Alternate</h5>
-										<div class="table-wrapper">
-											<table class="alt">
-												<thead>
-													<tr>
-														<th>Name</th>
-														<th>Description</th>
-														<th>Price</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Item One</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Two</td>
-														<td>Vis ac commodo adipiscing arcu aliquet.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Three</td>
-														<td> Morbi faucibus arcu accumsan lorem.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Four</td>
-														<td>Vitae integer tempus condimentum.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Five</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-												</tbody>
-												<tfoot>
-													<tr>
-														<td colspan="2"></td>
-														<td>100.00</td>
-													</tr>
-												</tfoot>
-											</table>
-										</div>
-									</section>
-
-									<section>
-										<h4>Buttons</h4>
-										<ul class="actions">
-											<li><a href="#" class="button primary">Primary</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt">Alternate</a></li>
-										</ul>
-										<ul class="actions">
-											<li><a href="#" class="button primary large">Large</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt small">Small</a></li>
-										</ul>
-										<ul class="actions fit">
-											<li><a href="#" class="button primary fit">Fit</a></li>
-											<li><a href="#" class="button fit">Fit</a></li>
-											<li><a href="#" class="button alt fit">Fit</a></li>
-										</ul>
-										<ul class="actions fit small">
-											<li><a href="#" class="button primary fit small">Fit + Small</a></li>
-											<li><a href="#" class="button fit small">Fit + Small</a></li>
-											<li><a href="#" class="button alt fit small">Fit + Small</a></li>
-										</ul>
-										<ul class="actions">
-											<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-											<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-											<li><a href="#" class="button alt icon solid fa-check">Icon</a></li>
-										</ul>
-										<ul class="actions">
-											<li><span class="button primary disabled">Primary</span></li>
-											<li><span class="button disabled">Default</span></li>
-											<li><span class="button alt disabled">Alternate</span></li>
-										</ul>
-									</section>
-
-									<section>
-										<h4>Form</h4>
-										<form method="post" action="#">
-											<div class="row gtr-uniform">
-												<div class="col-6 col-12-xsmall">
-													<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
-												</div>
-												<div class="col-6 col-12-xsmall">
-													<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
-												</div>
-												<div class="col-12">
-													<select name="demo-category" id="demo-category">
-														<option value="">- Category -</option>
-														<option value="1">Manufacturing</option>
-														<option value="1">Shipping</option>
-														<option value="1">Administration</option>
-														<option value="1">Human Resources</option>
-													</select>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-													<label for="demo-priority-low">Low Priority</label>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-normal" name="demo-priority">
-													<label for="demo-priority-normal">Normal Priority</label>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-high" name="demo-priority">
-													<label for="demo-priority-high">High Priority</label>
-												</div>
-												<div class="col-6 col-12-medium">
-													<input type="checkbox" id="demo-copy" name="demo-copy">
-													<label for="demo-copy">Email me a copy of this message</label>
-												</div>
-												<div class="col-6 col-12-medium">
-													<input type="checkbox" id="demo-human" name="demo-human" checked>
-													<label for="demo-human">I am a human and not a robot</label>
-												</div>
-												<div class="col-12">
-													<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-												</div>
-												<div class="col-12">
-													<ul class="actions">
-														<li><input type="submit" value="Send Message" /></li>
-														<li><input type="reset" value="Reset" class="alt" /></li>
-													</ul>
-												</div>
-											</div>
-										</form>
-									</section>
-
-									<section>
-										<h4>Image</h4>
-										<h5>Fit</h5>
-										<span class="image fit"><img src="images/banner.jpg" alt="" /></span>
-										<div class="box alt">
-											<div class="row gtr-50 gtr-uniform">
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-											</div>
-										</div>
-										<h5>Left &amp; Right</h5>
-										<p><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-										<p><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-									</section>
-
-								</div>
-							</section>
-						-->
-
-					</div>
-
-				<!-- Footer -->
-					<section id="footer">
-						<div class="container">
-							<ul class="copyright">
-								<li>&copy; Ben Neuwirth. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</section>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+            <div id="Website">
+            <h2 class="pTitle">Website</h2>
+            <div class="gallery">
+                <img src="images/Website.png" alt="This very website"/>
+            </div>
+            <p>I made a website to show off some of my personal projects, which can be found <a href="https://www.benneuwirth.com/index.html/website">here</a>!</p>
+            </div>
+            </div>
+            <footer>
+                <span class="left"><p>Created by Ben Neuwirth</p></span>
+                <span class="right">
+                    <a href="mailto:bmn36@cornell.edu" class="fa fa-envelope-o"></a>
+                    <a href="https://www.linkedin.com/in/benneuwirth" class="fa fa-linkedin"></a>
+                </span>
+            </footer>
+        </article>
+    </body>
 </html>
