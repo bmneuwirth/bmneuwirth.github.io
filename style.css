@@ -16,6 +16,7 @@
     header {
         text-align: center;
         justify-self: center;
+        font-size: 30px;
     }
 }
 
@@ -87,6 +88,7 @@ a {
 .gallery {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .pTitle {
