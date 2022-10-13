@@ -3,23 +3,11 @@
   :root { font-family: 'Inter var', sans-serif; }
 }
 
-@media screen and (max-width: 430px) {
-    body {
-        grid-template-columns: auto;
-        grid-template-rows: minmax(50px, auto) minmax(30px, auto) auto auto;
-        grid-template-areas:
-        "header"
-        "nav"
-        "ct"
-        "footer"
-    }
-}
-
 body {
     margin: 0 auto;
     max-width: 700px;
     min-width: 0;
-    padding: 40px 10px 10px 25px;
+    padding: 40px 10px 10px 10px;
     font-family: "Inter", "Helvetica", sans-serif;
     color: #444;
     background-color: #FAF9F6;
@@ -39,16 +27,6 @@ header {
     justify-self: center;
     align-self: end;
     font-weight:900;
-}
-@media screen and (max-width: 430px) {
-    body  {
-        padding: 40px 0px 0px 0px;
-    }
-    header {
-        text-align: center;
-        justify-self: center;
-        font-size: 30px;
-    }
 }
 article {
     font-size: 16px;
@@ -123,4 +101,25 @@ footer a:hover {
     padding-top: 1em;
     padding-left: 10px;
     padding-right: 1px;
+}
+@media screen and (max-width: 430px) {
+    body {
+        padding-top: 5px;
+        grid-template-columns: auto;
+        grid-template-rows: minmax(50px, auto) minmax(30px, auto) auto auto;
+        grid-template-areas:
+        "header"
+        "nav"
+        "ct"
+        "footer"
+    }
+    header {
+        text-align: center;
+        justify-self: center;
+        font-size: 30px;
+    }
+    .gallery img {
+        margin-left: .1%;
+        margin-right: .1%;
+    }
 }
