@@ -13,11 +13,6 @@
         "ct"
         "footer"
     }
-    header {
-        text-align: center;
-        justify-self: center;
-        font-size: 30px;
-    }
 }
 
 body {
@@ -45,6 +40,16 @@ header {
     align-self: end;
     font-weight:900;
 }
+@media screen and (max-width: 430px) {
+    body  {
+        padding: 40px 0px 0px 0px;
+    }
+    header {
+        text-align: center;
+        justify-self: center;
+        font-size: 30px;
+    }
+}
 article {
     font-size: 16px;
     grid-area: ct;
@@ -66,65 +71,53 @@ a {
     padding: 5px 25px 5px;
     margin: 5px 0px 0px 0px;
 }
-
 #Pulse img {
     width: 33%;
 }
-
 #Website img {
     width: 50%;
     border: 2px solid gray;
 }
-
 #OpenGL img {
     width: 50%;
 }
-
 .gallery img {
     margin-left: 10px;
     margin-right: 10px;
 }
-
 .gallery {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .pTitle {
     font-weight: 900;
     width: 100%;
     text-align: center;
     font-size: 36px;
 }
-
 #Website h2 {
     margin-bottom: 10px;
 }
-
 footer {
     padding-bottom: 10px;
     overflow: auto;
     width: 100%;
     border-top: 2px solid gray;
 }
-
 .left {
     float: left;
 }
 .right {
     float: right;
 }
-
 footer a {
     color: #444;
     text-decoration: none;
 }
-
 footer a:hover {
     color: #ffa64d;
 }
-
 .fa {
     vertical-align: middle;
     padding-top: 1em;
