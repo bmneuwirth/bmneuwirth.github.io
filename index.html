@@ -13,19 +13,37 @@
     </head>
     <body>
         <header>
-            Ben Neuwirth
+            Ben Neuwirth's site
         </header>
         <article>
             <div id="about">
-                <h2>About</h1>
-                <p> Hi! I'm Ben, a Cornell sophomore studying computer science with an intended minor in game design. 
-                    I do research at the Cornell Program of Computer Graphics, investigating the intersection 
-                    of visual perception, virtual reality, and eye tracking. Right now, I'm trying to get a handle on
-                    graphics fundamentals and 3D game development. This site displays some of the projects
-                    I've worked on outside of class. Thanks for checking it out! </p>
-
+                <h2>Bubblegum Bandit out on Steam!</h2>
+                <p> Download it for free <a href="https://store.steampowered.com/app/2460680/Bubblegum_Bandit/">here.</a> </p>
             </div>
             <div id="projects">
+            <p>
+                Thanks for stopping by! Here you can find some things I've made lately.
+            </p>
+            <div id="Bubblegum Bandit">
+                <h2 class="pTitle">Bubblegum Bandit</h2>
+                <div class="gallery">
+                    <img src="images/BB1.jpg" alt="The Bubblegum Bandit runs away from an enemy"/>
+                    <img src="images/BB2.jpg" alt="The Bubblegum Bandit falls with reversed gravity"/>
+                </div>
+                <p>
+                    An action platformer about flipping gravity and spitting gum! You play as the Bubblegum Bandit,
+                    a space rogue seeking to destroy a robot regime. You use your bubblegum and gravity powers in
+                    unison to infiltrate spaceships, steal their power sources, and get out before everything blows up.
+                </p>
+                <p>
+                    We made this game using LibGDX, an open-source Java framework that gave us a deeper understanding of
+                    game architecture. I worked on a lot of different pieces, including integrating the game with a level editor,
+                    a scriptable scrolling camera, gameplay elements like blocks and doors, enemy attacks, gum mechanics,
+                    and integrating 2D lighting.
+                </p>
+
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Yezt8J5P2BI?si=6abbd8O8T6D7r-Bp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
 
             <div id="OpenGL">
             <h2 class="pTitle">OpenGL App</h2>
@@ -33,14 +51,8 @@
                 <img src="images/GIF1.gif" alt="Ground perspective of simple cube world in OpenGL"/>
                 <img src="images/GIF2.gif" alt="Overhead perspective of simple cube world in OpenGL"/>
             </div>
-            <p>I've been learning some OpenGL to help me get a better understanding of the 3D graphics pipeline.
-                This project was created from scratch with OpenGL and C++. It uses Perlin noise to generate a small 
-                world of cubes that can be explored from a first-person perspective with WASD and mouse controls.
-            </p>
-            <p>
-                I'm interested in making my own small 3D games in OpenGL, since I'll get a better
-                understanding of what goes on under the hood than if I used Unity or Unreal. I'm currently learning
-                more about OpenGL and game engines so I can make more complex projects. 
+            <p> I made this to learn how to use OpenGL and teach myself some graphics knowledge before I took the graphics
+                class at Cornell. It uses Perlin noise to generate a small world of cubes that can be explored from a first-person perspective with WASD and mouse controls.
             </p>
             </div>
 
@@ -52,26 +64,18 @@
                 <img src="images/Pulse3.jpg" alt="Pulse playlist view screen"/>
             </div>
             <p>
-                Pulse is an iOS app created in a group of 5 for the 2021 AppDev Hack Challenge at Cornell.
-                The idea is to provide insights on user listening habits for a specific community, like a college
-                campus, to help with music discovery. I focused on front-end development in Swift, working on connecting to the 
-                Spotify API and handling account authentication, sending user data to a Heroku app, and turning the data into playlists.
+                I worked with 5 people to make this iOS app. The idea is to provide insights on user listening habits for a specific community, like a college
+                campus, to help with music discovery. It pulls from each user's listening history on Spotify, then generates a playlist
+                out of everyone's most played songs. I focused on front-end development in Swift, working on connecting to the 
+                Spotify API and handling account authentication, sending user data to a Heroku app via a REST API, and turning the data into playlists.
             </p>
-            </div>
-
-            <div id="Website">
-            <h2 class="pTitle">Website</h2>
-            <div class="gallery">
-                <img src="images/Website.png" alt="This very website"/>
-            </div>
-            <p>I made a website to show off some of my personal projects, which can be found <a href="https://www.benneuwirth.com" onclick="location.reload()">here</a>!</p>
             </div>
             </div>
             <footer>
-                <span class="left"><p>Created by Ben Neuwirth</p></span>
                 <span class="right">
                     <a href="mailto:bmn36@cornell.edu" class="fa fa-envelope-o"></a>
                     <a href="https://www.linkedin.com/in/benneuwirth" class="fa fa-linkedin"></a>
+                    <a href="https://www.github.com/bmneuwirth" class="fa fa-github"></a>
                 </span>
             </footer>
         </article>
