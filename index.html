@@ -36,14 +36,27 @@
                     unison to infiltrate spaceships, steal their power sources, and get out before everything blows up.
                 </p>
                 <p>
-                    We made this game using LibGDX, an open-source Java framework that gave us a deeper understanding of
+                    We made this game for Cornell's Intro to Game Development class as a team of 8 programmers and designers. We used LibGDX, an open-source Java framework that gave us a deeper understanding of
                     game architecture. I contributed heavily to the overall game concept and level design. I also programmed 
                     a lot of different pieces, including level editor integration, a scriptable scrolling camera, 
-                    gameplay elements like blocks and doors, enemy attacks, gum mechanics, player controls,
-                    and integrating 2D lighting.
+                    gameplay elements like blocks and doors, enemy attacks, gum mechanics, player controls, and Box2D lights integration.
                 </p>
 
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/Yezt8J5P2BI?si=6abbd8O8T6D7r-Bp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+
+            <div id="Animal Spies">
+                <h2 class="pTitle">Animal Spies</h2>
+                <div class="gallery">
+                    <img src="images/animalspies1.png" alt="Infinite world of varying procedural terrain"/>
+                    <img src="images/animalspies3.png" alt="Infinite world of varying procedural terrain"/>
+                    <img src="images/animalspies4.png" alt="Infinite world of varying procedural terrain"/>
+                </div>
+                <p> I was the Programming Lead on Animal Spies, a networked multiplayer mobile game created for Cornell's Advanced Game Development class as a team of 10. I led the design of the game architecture and reviewed other team members' contributions.
+                    This game was written in C++ and created with CUGL, a game framework built on top of SDL. The game is divided into two phases. In the first phase, you place traps to prevent your opponent from getting the key and reaching the exit.
+                    In the second phase, you run for the exit yourself while dodging enemy traps and setting off your own. I worked on touchscreen UI/UX for the trap placement phase, controls and collisions for 2.5D perspective with multiple heights,
+                    trap design and gameplay, and more. We won Most Innovative at the GDIAC Game Showcase at the end of the class.
+                </p>
             </div>
 
             <div id="WebGL / Three.js">
@@ -54,7 +67,23 @@
                 </div>
                 <p> For Cornell's Intro to Graphics class, our final project was to create anything we wanted using rasterization using a TypeScript framework built on Three.js. My group of three created this procedurally generated world. You explore from a first-person perspective
                     using WASD and the mouse. As you move in any direction, terrain far away is unloaded and new terrain appears in front of you, creating the perception of an infinite world. I developed the player control, infinite terrain using chunks, and atmospheric haze shader. 
-                    I also tuned the terrain generation, which is done with simplex noise.
+                    I also tuned the terrain generation, which is done with simplex noise. (Video below, narrated by Emily)
+                </p>
+                <video src="images/webgl_demo.mp4" controls poster="images/WebGL1.png" aria-label="WebGL demo — Infinite world of varying procedural terrain" width="560" height="315"></video>
+            </div>
+
+            <div id="Crush">
+                <h2 class="pTitle">Crush - Unity Game Jam submission</h2>
+                <div class="gallery">
+                    <img src="images/Crush_Cursed1.jpg" alt="Off-screen picture of two characters in a suburban neighborhood"/>
+                    <img src="images/Crush_Cursed2.jpg" alt="J S letters hung on wall"/>
+                </div>
+                <p> We created this for a game jam hosted by Cornell's Development in Games Association
+                    using Unity, themed 'Crush'. This game is now lost media, and all that survives are these off-screen pictures from our presentation during the game jam... 
+                    We created a first-person stealth photography game where you had to sneakily take pictures of evidence to prove someone had a crush on you. I implemented a 
+                    camera system where you could take pictures and review them in the menu. To implement object detection, I used a two-pass render system where the camera takes
+                    the full picture in the first pass, then renders again with only the special objects to be detected without clearing the depth buffer. Then by counting the pixels in the second render,
+                    we detect whether you've taken a picture of any of the "special objects" that serve as evidence. 
                 </p>
             </div>
             </div>
