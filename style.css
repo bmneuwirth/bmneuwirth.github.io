@@ -1,133 +1,226 @@
-:root { font-family: 'Inter', sans-serif; }
-@supports (font-variation-settings: normal) {
-  :root { font-family: 'Inter var', sans-serif; }
+/* Spartan. Content first. */
+
+html {
+    color-scheme: light;
+    background: #fff;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
+    max-width: 36rem;
     margin: 0 auto;
-    max-width: 700px;
-    min-width: 0;
-    padding: 40px 10px 10px 10px;
-    font-family: "Helvetica", sans-serif;
-    color: #444;
-    background-color: #f5deb3;
-    display: grid;
-    row-gap: 5px;
-    grid-template-columns: auto auto;
-    grid-template-rows: 60px auto;
-    grid-template-areas:
-        "header header"
-        "ct ct"
-        "footer footer"
+    padding: 2rem 1rem 4rem;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #000;
 }
-header {
-    margin: 0px;
-    font-size: 24px;
-    grid-area: header;
-    justify-self: left;
-    align-self: end;
-    font-weight:900;
-}
-article {
-    font-size: 16px;
-    grid-area: ct;
-    border-top: 2px solid gray;
-}
-h1 {
-    font-size: 32px;
-    font-weight: 900;
-}
-h2 {
-    font-size: 23px;
-    margin-top: 1em;
-}
-a {
-    color: #ff61b6;
-}
-#about {
-    background-color: #2f2b2a;
-    color: #f9f9f9;
-    padding: 5px 25px 5px;
-    margin: 5px 0px 0px 0px;
-}
-#about h2 {
-    color: #ff61b6;
-}
-#Pulse img {
-    width: 33%;
-}
-#Website img {
-    width: 50%;
-    border: 2px solid gray;
-}
-#OpenGL img {
-    width: 50%;
-}
-.gallery img,
-.gallery video {
-    /* margin-left: 10px; */
-    margin-right: 10px;
-    width: 50%;
-    border: 4px solid #2f2b2a;
-}
-.gallery {
+
+/* Root page: name only, vertically centered, same left edge as the column */
+.landing {
     display: flex;
-    justify-content: left;
-    align-items: left;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding-top: 0;
+    padding-bottom: 0;
 }
-.pTitle {
-    font-weight: 900;
+
+.landing h1 {
+    margin: 0;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin: 0 0 1rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+    border-bottom: 1px solid #000;
+    padding-bottom: 0.25rem;
+    margin: 3rem 0 1rem;
+}
+
+h3 {
+    font-size: 1rem;
+    margin: 1.75rem 0 0.25rem;
+}
+
+.masthead + h2 {
+    margin-top: 1.75rem;
+}
+
+p, ul, ol {
+    margin: 0 0 1rem;
+}
+
+ul, ol {
+    padding-left: 1.5rem;
+}
+
+a {
+    color: inherit;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #000;
+    margin: 2rem 0;
+}
+
+img, video, iframe {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 0;
+}
+
+iframe {
     width: 100%;
-    text-align: left;
-    font-size: 24px;
+    aspect-ratio: 16 / 9;
 }
-#Website h2 {
-    margin-bottom: 10px;
+
+/* Vertical (Shorts) embeds. Without the width cap a 9:16 video at the full
+   column width renders taller than the viewport. */
+iframe.vertical {
+    aspect-ratio: 9 / 16;
+    max-width: 20rem;
 }
+
+figure {
+    margin: 0 0 1rem;
+}
+
+.media {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0 0 1rem;
+}
+
+.media img {
+    width: calc(50% - 0.25rem);
+}
+
+.meta {
+    font-style: italic;
+}
+
+.credential {
+    font-style: italic;
+    margin: 0 0 0.75rem;
+}
+
+.contact {
+    margin: 0 0 0.75rem;
+}
+
+.embeds > * {
+    margin-bottom: 1rem;
+}
+
 footer {
-    padding-bottom: 10px;
-    overflow: auto;
-    width: 100%;
-    border-top: 2px solid gray;
+    margin-top: 3rem;
 }
-.left {
-    float: left;
-}
-.right {
-    float: right;
-}
-footer a {
-    color: #444;
-    text-decoration: none;
-}
-footer a:hover {
-    color: #ffa64d;
-}
-.fa {
-    vertical-align: middle;
-    padding-top: 1em;
-    padding-left: 10px;
-    padding-right: 1px;
-}
-@media screen and (max-width: 430px) {
-    body {
-        padding-top: 5px;
-        grid-template-columns: auto;
-        grid-template-rows: auto auto auto auto;
-        grid-template-areas:
-        "header"
-        "nav"
-        "ct"
-        "footer"
+
+@media screen and (max-width: 600px) {
+    .media img {
+        width: 100%;
     }
-    header {
-        text-align: center;
-        justify-self: center;
-        font-size: 30px;
+}
+
+/* Cornell box, right-aligned within the masthead */
+.masthead {
+    position: relative;
+    padding-right: 124px;
+}
+
+.bg-cube {
+    --size: 56px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    display: grid;
+    place-items: center;
+    width: 108px;
+    perspective: 600px;
+    pointer-events: none;
+}
+
+.cube {
+    position: relative;
+    width: var(--size);
+    height: var(--size);
+    transform-style: preserve-3d;
+    animation: cube-spin 32s linear infinite;
+}
+
+.face {
+    position: absolute;
+    inset: 0;
+    background: #e2dfd8;
+}
+
+/* The four side walls fade out as each swings toward the camera, so the
+   box is always open on the viewer's side. Phase offsets are a quarter
+   of the 32s rotation apart, matching the order the walls come around. */
+.face:nth-child(1),
+.face:nth-child(2),
+.face:nth-child(3),
+.face:nth-child(4) {
+    animation: wall-fade 32s linear infinite;
+}
+
+.face:nth-child(1) { transform: rotateY(0deg) translateZ(calc(var(--size) / 2)); animation-delay: 0s; }
+.face:nth-child(2) { transform: rotateY(90deg) translateZ(calc(var(--size) / 2)); animation-delay: -8s; background: #7c9e80; }
+.face:nth-child(3) { transform: rotateY(180deg) translateZ(calc(var(--size) / 2)); animation-delay: -16s; }
+.face:nth-child(4) { transform: rotateY(-90deg) translateZ(calc(var(--size) / 2)); animation-delay: -24s; background: #bf7b73; }
+
+/* ceiling and floor stay put */
+.face:nth-child(5) { transform: rotateX(90deg) translateZ(calc(var(--size) / 2)); }
+.face:nth-child(6) { transform: rotateX(-90deg) translateZ(calc(var(--size) / 2)); }
+
+@keyframes cube-spin {
+    from { transform: rotateX(-22deg) rotateY(0deg); }
+    to   { transform: rotateX(-22deg) rotateY(360deg); }
+}
+
+@keyframes wall-fade {
+    0%   { opacity: 0; }
+    18%  { opacity: 0.9; }
+    82%  { opacity: 0.9; }
+    100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cube {
+        animation: none;
+        transform: rotateX(-22deg) rotateY(-35deg);
     }
-    .gallery img,
-    .gallery video {
-        margin-left: .1%;
-        margin-right: .1%;
+    .face {
+        animation: none;
+        opacity: 0.9;
+    }
+    .face:nth-child(1) {
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .masthead {
+        padding-right: 76px;
+    }
+    .bg-cube {
+        --size: 36px;
+        width: 68px;
     }
 }
