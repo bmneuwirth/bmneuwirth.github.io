@@ -1,8 +1,36 @@
 /* Spartan. Content first. */
 
+:root {
+    --bg:    #fff;
+    --text:  #000;
+    /* one token for secondary text; italic is reserved for titles of works */
+    --muted: #4a4a4a;
+    --rule:  #b5b5b5;  /* the divider line */
+    --label: #a2a2a2;  /* the group label, a shade darker than its line */
+}
+
+/* Dark keeps the light palette's structure -- body, then meta, then the margin
+   label, each a step further from the reading column -- but not its ratios.
+   Translating the faint end proportionally lands the label in mid-grey, which
+   measures as higher contrast than the light one and still reads worse: the
+   label is letterspaced uppercase, and thin light strokes on dark lose density
+   in a way dark strokes on white do not. So the ladder is compressed upward,
+   with meta still sitting on its midpoint. Background and text stop short of
+   pure black and white -- the screenshots are near-black and would otherwise
+   lose their edges. */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg:    #151515;
+        --text:  #e9e9e9;
+        --muted: #bbbbbb;
+        --rule:  #565656;
+        --label: #8a8a8a;
+    }
+}
+
 html {
-    color-scheme: light;
-    background: #fff;
+    color-scheme: light dark;
+    background: var(--bg);
     -webkit-text-size-adjust: 100%;
 }
 
@@ -10,28 +38,19 @@ body {
     max-width: 36rem;
     margin: 0 auto;
     padding: 2rem 1rem 4rem;
-    font-family: "Times New Roman", Times, serif;
-    font-size: 18px;
+    font-family: sans-serif;
+    font-size: 17px;
     line-height: 1.5;
-    color: #000;
+    color: var(--text);
 }
 
-/* Root page: name only, vertically centered, same left edge as the column */
-.landing {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100vh;
-    min-height: 100svh;
-    padding-top: 0;
-    padding-bottom: 0;
+/* Document pages carry a left gutter for the Cornell box, so the masthead text
+   shares one left edge with every heading and paragraph below it. */
+.doc {
+    padding-left: 192px;
 }
 
-.landing h1 {
-    margin: 0;
-}
-
-h1, h2, h3 {
+h1, h2 {
     font-weight: 700;
     line-height: 1.3;
 }
@@ -41,20 +60,15 @@ h1 {
     margin: 0 0 1rem;
 }
 
+/* One heading level: every project is an h2. Groups are separated by rules,
+   not by a second tier of headings. */
 h2 {
-    font-size: 1.25rem;
-    border-bottom: 1px solid #000;
-    padding-bottom: 0.25rem;
-    margin: 3rem 0 1rem;
-}
-
-h3 {
-    font-size: 1rem;
-    margin: 1.75rem 0 0.25rem;
-}
-
-.masthead + h2 {
-    margin-top: 1.75rem;
+    /* Above the 17px body, not below it. `rem` is 16px here -- html font-size
+       is never set -- so 1rem would render headings smaller than paragraphs. */
+    font-size: 1.1875rem;
+    margin: 1.75rem 0 0;
+    /* Arriving from a resume link, don't jam the heading against the top. */
+    scroll-margin-top: 2rem;
 }
 
 p, ul, ol {
@@ -69,13 +83,41 @@ a {
     color: inherit;
 }
 
-hr {
-    border: 0;
-    border-top: 1px solid #000;
-    margin: 2rem 0;
+
+/* Group divider: a label on the left, the rule filling whatever is left over.
+   currentColor keeps the line and the word the same grey by construction. */
+/* Group divider: the rule spans the text column, the label hangs out in the
+   gutter directly under the cube. cornell.js keeps the cube fixed, so the
+   label scrolls up toward it -- the inline script fades it before they meet. */
+.divider {
+    position: relative;
+    height: 1px;
+    /* Even either side. The lower margin collapses against h2's 1.75rem, so it
+       has to exceed 28px to actually show as the larger of the two. */
+    margin: 3rem 0;
+    background: var(--rule);
+    color: var(--rule);
 }
 
-img, video, iframe {
+.divider span {
+    position: absolute;
+    /* Right edge lines up with the drawn box's right edge -- not the canvas
+       edge, since the box fills only ~84% of it. */
+    right: calc(100% + 32px + var(--box-inset, 13px));
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--label);
+    font-size: 1.25rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    /* Tracking adds a trailing space after the last letter, which would push a
+       right-aligned label off its edge by that much. Cancel it. */
+    margin-right: -0.08em;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+img, iframe {
     display: block;
     max-width: 100%;
     height: auto;
@@ -87,16 +129,59 @@ iframe {
     aspect-ratio: 16 / 9;
 }
 
-/* Vertical (Shorts) embeds. Without the width cap a 9:16 video at the full
-   column width renders taller than the viewport. */
-iframe.vertical {
-    aspect-ratio: 9 / 16;
-    max-width: 20rem;
+/* Media sits inside the measure rather than filling it -- at a 17px body a
+   full-column figure reads as full-bleed and outweighs the text. A lone still
+   takes the same cap as a video poster, so single- and paired-image sections
+   agree on where the right edge of media falls. */
+.lite-yt,
+.shot {
+    max-width: 26rem;
 }
 
-figure {
+.shot {
     margin: 0 0 1rem;
 }
+
+
+/* Vertical (Shorts) embeds. Without the cap a 9:16 video at column width
+   renders taller than the viewport. Only the player is capped -- a poster can
+   be cropped to 16:9 and sit at the same width as every other still. */
+iframe.vertical {
+    max-width: 12rem;
+    aspect-ratio: 9 / 16;
+}
+
+/* A poster standing in for a YouTube embed. The iframe is built on click, so
+   a visit that never plays anything makes no request to Google at all. */
+.lite-yt {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin: 0 0 1rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    line-height: 0;
+    cursor: pointer;
+}
+
+.lite-yt img {
+    width: 100%;
+}
+
+.lite-yt::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: no-repeat center / 60px 60px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' fill='rgba(0,0,0,0.55)'/%3E%3Cpath d='M26 20l20 12-20 12z' fill='white'/%3E%3C/svg%3E");
+    opacity: 0.85;
+}
+
+.lite-yt:hover::after,
+.lite-yt:focus-visible::after {
+    opacity: 1;
+}
+
 
 .media {
     display: flex;
@@ -109,21 +194,17 @@ figure {
     width: calc(50% - 0.25rem);
 }
 
+/* Metadata is marked by size first and colour second; at body size the
+   colour had to carry the whole distinction, which read as too much grey. */
 .meta {
-    font-style: italic;
-}
-
-.credential {
-    font-style: italic;
-    margin: 0 0 0.75rem;
+    font-size: 0.9375rem;
+    /* Sits tight under its title; body leading is too loose for a one-line label. */
+    line-height: 1.35;
+    color: var(--muted);
 }
 
 .contact {
     margin: 0 0 0.75rem;
-}
-
-.embeds > * {
-    margin-bottom: 1rem;
 }
 
 footer {
@@ -136,91 +217,134 @@ footer {
     }
 }
 
-/* Cornell box, right-aligned within the masthead */
+/* Cornell box, hanging in the gutter left of the shared text edge. cornell.js
+   centres the box on the header's middle, so the header keeps its natural
+   height -- padding it out to the box's height would push the name down and
+   the first section with it. The box overhangs the header instead; it is in
+   the gutter, so nothing collides. */
 .masthead {
     position: relative;
-    padding-right: 124px;
 }
 
 .bg-cube {
-    --size: 56px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
-    display: grid;
-    place-items: center;
-    width: 108px;
-    perspective: 600px;
+    position: fixed;
+    top: 2rem;               /* JS re-centres this against the masthead */
+    left: max(0px, calc(50% - 392px));
+    width: 160px;
+    height: 160px;
+    /* Above the content so it can be grabbed: at z-index -1 the body box sits
+       on top and swallows the pointer. It never overlaps text -- it lives in
+       the gutter -- so raising it costs nothing. */
+    z-index: 1;
     pointer-events: none;
 }
 
-.cube {
-    position: relative;
-    width: var(--size);
-    height: var(--size);
-    transform-style: preserve-3d;
-    animation: cube-spin 32s linear infinite;
+/* The canvas is deliberately larger than the box reads. The reference camera
+   frames the box only at rest, so the rotation needs headroom in the frustum;
+   the box lands at roughly 73% of the canvas. Motion, reduced-motion and
+   pausing offscreen are all handled in cornell.js. */
+#cornell {
+    display: block;
+    width: 160px;
+    height: 160px;
+    pointer-events: auto;
+    touch-action: pan-y;     /* we take horizontal; vertical stays native scroll */
+    cursor: grab;
 }
 
-.face {
-    position: absolute;
-    inset: 0;
-    background: #e2dfd8;
+#cornell:active {
+    cursor: grabbing;
 }
 
-/* The four side walls fade out as each swings toward the camera, so the
-   box is always open on the viewer's side. Phase offsets are a quarter
-   of the 32s rotation apart, matching the order the walls come around. */
-.face:nth-child(1),
-.face:nth-child(2),
-.face:nth-child(3),
-.face:nth-child(4) {
-    animation: wall-fade 32s linear infinite;
-}
-
-.face:nth-child(1) { transform: rotateY(0deg) translateZ(calc(var(--size) / 2)); animation-delay: 0s; }
-.face:nth-child(2) { transform: rotateY(90deg) translateZ(calc(var(--size) / 2)); animation-delay: -8s; background: #7c9e80; }
-.face:nth-child(3) { transform: rotateY(180deg) translateZ(calc(var(--size) / 2)); animation-delay: -16s; }
-.face:nth-child(4) { transform: rotateY(-90deg) translateZ(calc(var(--size) / 2)); animation-delay: -24s; background: #bf7b73; }
-
-/* ceiling and floor stay put */
-.face:nth-child(5) { transform: rotateX(90deg) translateZ(calc(var(--size) / 2)); }
-.face:nth-child(6) { transform: rotateX(-90deg) translateZ(calc(var(--size) / 2)); }
-
-@keyframes cube-spin {
-    from { transform: rotateX(-22deg) rotateY(0deg); }
-    to   { transform: rotateX(-22deg) rotateY(360deg); }
-}
-
-@keyframes wall-fade {
-    0%   { opacity: 0; }
-    18%  { opacity: 0.9; }
-    82%  { opacity: 0.9; }
-    100% { opacity: 0; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .cube {
-        animation: none;
-        transform: rotateX(-22deg) rotateY(-35deg);
-    }
-    .face {
-        animation: none;
-        opacity: 0.9;
-    }
-    .face:nth-child(1) {
-        opacity: 0;
-    }
-}
-
+/* Vertical layout: no gutter, the box sits top-right beside the header and
+   scrolls away with it. No veil, no pinning, no interaction -- it just spins. */
 @media screen and (max-width: 600px) {
-    .masthead {
-        padding-right: 76px;
+    .doc {
+        padding-left: 1rem;
     }
+
     .bg-cube {
-        --size: 36px;
-        width: 68px;
+        position: absolute;
+        top: 2rem;
+        right: 1rem;
+        left: auto;
+        transform: none;
+        width: 96px;
+        height: 96px;
+        z-index: 0;
+    }
+
+    #cornell {
+        width: 96px;
+        height: 96px;
+    }
+
+    .masthead {
+        padding-right: 112px;
+    }
+
+    /* No gutter to hang in, so the label joins its rule inline. */
+    .divider {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+        height: auto;
+        background: none;
+        /* 3rem either side costs 96px of a phone screen; 2rem still reads. */
+        margin: 2rem 0;
+    }
+
+    .divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--rule);
+    }
+
+    .divider span {
+        position: static;
+        transform: none;
+        flex: none;
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+    }
+}
+
+
+/* Landscape phone: wide enough for the gutter layout, but only ~390px tall,
+   so the box and gutter shrink rather than switching layouts entirely.
+   gutter - canvas stays 32px, so the label offset needs no change. */
+@media screen and (min-width: 601px) and (max-height: 500px) {
+    .doc {
+        padding-left: 152px;
+    }
+
+    .bg-cube {
+        left: max(0px, calc(50% - 372px));
+        width: 120px;
+        height: 120px;
+    }
+
+    #cornell {
+        width: 120px;
+        height: 120px;
+    }
+
+    .divider {
+        margin: 2rem 0;
+    }
+
+    /* PERSONAL is ~122px at 20px caps, against 110px of gutter here. */
+    .divider span {
+        font-size: 1rem;
+    }
+}
+
+/* Touch: horizontal drags spin the box, vertical ones scroll the page. */
+@media (hover: none) and (pointer: coarse) {
+    #cornell {
+        pointer-events: auto;
+        touch-action: pan-y;
+        cursor: default;
     }
 }

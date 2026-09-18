@@ -3,12 +3,183 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ben Neuwirth</title>
+    <title>Ben Neuwirth — Projects</title>
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="landing">
+<body class="doc">
 
-<h1>Ben Neuwirth</h1>
+<!-- Fixed to the viewport; sits outside the flow, so it lives at the top of
+     the body rather than inside the header it lines up with. -->
+<div class="bg-cube" aria-hidden="true">
+    <canvas id="cornell" width="216" height="216"></canvas>
+</div>
+
+<header class="masthead">
+    <h1>Ben Neuwirth</h1>
+    <p class="contact">
+        <a href="mailto:ben@benneuwirth.com">ben@benneuwirth.com</a><br>
+        <a href="https://www.linkedin.com/in/benneuwirth">linkedin.com/in/benneuwirth</a>
+    </p>
+</header>
+
+<p>
+    I work as a software engineer on Tesla's Vehicle Software team. I focus on 3D UI, including
+    the 3D vehicle interface when parked, self-driving visualization, and customization features.
+</p>
+<p>
+    I graduated from Cornell University in 2025 with a Bachelor of Arts in Computer Science,
+    summa cum laude.
+</p>
+
+<p class="divider"><span>Tesla</span></p>
+
+<h2 id="tron-mode">Tron Mode</h2>
+<p class="meta">Godot &amp; Unreal Engine &middot; Model S, 3, X, Y &amp; Cybertruck</p>
+<p>
+    I led the implementation of Tron Mode on a rapid timeline, shipping it in both Godot and Unreal Engine. Activating Tron Mode turns
+    the car in the visualization into the Light Cycle. I integrated the new park scene and Light
+    Cycle models, created a light trail effect with dynamic geometry and a custom shader, changed cameras to showcase the bike,
+    and added motorcycle tilting visuals.
+    I worked with teammates on integrating Tron Mode with turn signal, intro video, and lightbar effects.
+</p>
+<button class="lite-yt" data-id="2Jm95xz0Q3I" data-title="Tesla Tron Mode"
+        aria-label="Play video: Tesla Tron Mode">
+    <img decoding="async" src="images/yt-tron.jpg" alt="" loading="lazy">
+</button>
+
+<h2 id="paint-shop">Paint Shop</h2>
+<p class="meta">Godot &amp; Unreal Engine &middot; Model S, 3, X, Y &amp; Cybertruck</p>
+<p>
+    Paint Shop lets owners change how their car looks in the vehicle's visualization. I implemented
+    the custom wrap feature, including upload over USB and from the mobile app, and added window
+    tint and license plate text.
+</p>
+<img class="shot" src="images/wrap-paint-shop.jpg" decoding="async" loading="lazy"
+     alt="The Paint Shop wrap picker open beside a Model 3 wearing an avocado wrap">
+
+<p class="meta"><a href="https://twitter.com/Tesla/status/2079721506322645469">Mobile upload demo</a> &middot; <a href="https://github.com/teslamotors/custom-wraps">Make your own</a></p>
+
+<h2 id="cybercab">Cybercab</h2>
+<p class="meta">Unreal Engine &middot; live in Austin</p>
+<p>
+    I implemented 3D UI in Unreal Engine for the Cybercab Robotaxi experience, including the rider
+    ingress and egress screens.
+</p>
+<button class="lite-yt" data-id="bpPJbRjIpxg" data-start="39" data-vertical="1"
+        data-title="Cybercab rider UI" aria-label="Play video: Cybercab rider UI, from 0:39">
+    <img decoding="async" src="images/cybercab-rider-ui.jpg" loading="lazy"
+         alt="The Cybercab rider screen showing the destination, arrival time and a 3D render of the vehicle">
+</button>
+
+<h2 id="car-visualization">Car Visualization</h2>
+<p class="meta">Godot &rarr; Unreal Engine &middot; New Model 3 &amp; Y</p>
+<p>
+    I worked on the initial bring-up of the Unreal Engine visualization for Model 3 and Model Y.
+    I ported features over from Godot, including scene markers and camera views, and added
+    systems that let designers author skyboxes and lighting per vehicle.
+</p>
+<img class="shot" src="images/model-3-viz.jpg" decoding="async" loading="lazy"
+     alt="The Model 3 visualization parked, with scene markers for the frunk, trunk and charge port">
+
+<p class="divider"><span>Personal</span></p>
+
+<h2 id="animal-spies">Animal Spies</h2>
+<p class="meta">Networked multiplayer mobile game &middot; C++, CUGL/SDL &middot; 2024</p>
+<div class="media">
+    <img decoding="async" src="images/animalspies4.jpg" alt="Animal Spies level" loading="lazy">
+    <img decoding="async" src="images/animalspies3.jpg" alt="Animal Spies trap placement" loading="lazy">
+</div>
+<p>
+    Built for Cornell's advanced game development class and awarded Most Innovative at the
+    end-of-semester GDIAC showcase. The game is a 1v1 duel in two phases: first you place traps to
+    stop your opponent from reaching the key and the exit, then you run for the exit yourself while
+    dodging their traps and setting off your own.
+</p>
+<p>
+    I was Programming Lead for the seven programmers on the team, helping design the system
+    architecture and leading code review. I built the trap-placement phase and its touchscreen UX,
+    and implemented movement, collision, and the elevation logic and tile render order behind the
+    game's 3/4 perspective.
+</p>
+
+<h2 id="bubblegum-bandit">Bubblegum Bandit</h2>
+<p class="meta">Action platformer &middot; Java, LibGDX, Box2D &middot; 2023 &middot; <a href="https://store.steampowered.com/app/2460680/Bubblegum_Bandit/">free on Steam</a> &middot; <a href="https://github.com/agettig/BubblegumBandit">GitHub source</a></p>
+<div class="media">
+    <img decoding="async" src="images/BB1.jpg" alt="The Bubblegum Bandit runs away from an enemy" loading="lazy">
+    <img decoding="async" src="images/BB2.jpg" alt="The Bubblegum Bandit falls with reversed gravity" loading="lazy">
+</div>
+<p>
+    You play as a space rogue out to bring down a robot regime, flipping gravity and spitting gum to
+    infiltrate spaceships, steal their power sources, and get out before everything blows up. Built
+    with a team of eight for Cornell's intro game development class.
+</p>
+<p>
+    I contributed to concept and level design, and programmed the dynamic scrolling camera, the gum
+    mechanics, doors and crushers, and the Tiled level parser. I also worked on the initial Box2D
+    lights bring-up, collision handling, and level loading.
+</p>
+<button class="lite-yt" data-id="Yezt8J5P2BI" data-title="Bubblegum Bandit trailer"
+        aria-label="Play video: Bubblegum Bandit trailer">
+    <img decoding="async" src="images/yt-bandit.jpg" alt="" loading="lazy">
+</button>
+
+<h2 id="webgl-world">WebGL Infinite World</h2>
+<p class="meta">First-person exploration &middot; TypeScript &amp; Three.js &middot; 2024</p>
+<div class="media">
+    <img decoding="async" src="images/webgl1.jpg" alt="Procedural terrain receding into atmospheric haze" loading="lazy">
+    <img decoding="async" src="images/webgl2.jpg" alt="Procedurally generated hills and water" loading="lazy">
+</div>
+<p>
+    A procedurally generated, never-ending world. Built with two others for Cornell's Intro to
+    Computer Graphics class. I wrote the player controls, the chunked infinite terrain, and the
+    atmospheric haze shader, and tuned the simplex noise driving the generation.
+</p>
+
+<script>
+// The group label sits in the gutter under the cube and scrolls with the page.
+// Fade it out before it reaches the cube, so the two never overlap.
+(function () {
+    var cube = document.querySelector('.bg-cube');
+    var labels = [].slice.call(document.querySelectorAll('.divider span'));
+    if (!cube || !labels.length) return;
+    var GAP = 8, FADE = 56, pending = false;
+    function update() {
+        pending = false;
+        // Read every rect, then write every opacity: interleaving them makes
+        // each read flush the previous write, forcing a layout per label.
+        var edge = cube.getBoundingClientRect().bottom + GAP;
+        var tops = labels.map(function (s) { return s.getBoundingClientRect().top; });
+        labels.forEach(function (s, i) {
+            var o = (tops[i] - edge) / FADE;
+            s.style.opacity = o < 0 ? '0' : o > 1 ? '1' : o.toFixed(3);
+        });
+    }
+    function request() {
+        if (!pending) { pending = true; requestAnimationFrame(update); }
+    }
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', request);
+    update();
+})();
+
+// Click-to-load video: nothing is requested from Google until the visitor asks.
+document.querySelectorAll('.lite-yt').forEach(function (b) {
+    b.addEventListener('click', function () {
+        var f = document.createElement('iframe');
+        f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.id
+              + '?autoplay=1' + (b.dataset.start ? '&start=' + b.dataset.start : '');
+        f.title = b.dataset.title || '';
+        f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+        f.allowFullscreen = true;
+        if (b.dataset.vertical) f.className = 'vertical';
+        b.replaceWith(f);
+    }, { once: true });
+});
+</script>
+
+<script src="cornell.js"></script>
 
 </body>
 </html>
