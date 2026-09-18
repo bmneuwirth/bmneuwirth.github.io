@@ -289,6 +289,19 @@
     }
     // Page height does change as lazy images and iframes resolve.
     window.addEventListener('load', function () { invalidateMax(true); });
+    // ...and it keeps changing after load, as lazy media below the fold
+    // resolves while you scroll toward it, with no resize event to announce
+    // it. Watch the document's own height instead: the URL bar moves
+    // innerHeight, not scrollHeight, so this cannot bring back the snap.
+    if (window.ResizeObserver) {
+      var lastH = document.documentElement.scrollHeight;
+      new ResizeObserver(function () {
+        var h = document.documentElement.scrollHeight;
+        if (h === lastH) return;
+        lastH = h;
+        invalidateMax(true);
+      }).observe(document.documentElement);
+    }
     function angle() {
       var y = window.pageYOffset || document.documentElement.scrollTop || 0;
       var max = maxScroll();
