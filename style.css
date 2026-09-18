@@ -135,7 +135,9 @@ iframe {
    agree on where the right edge of media falls. */
 .lite-yt,
 .shot {
-    max-width: 26rem;
+    /* min() so the cap never beats the column: at 26rem this is wider than a
+       phone's measure, and .shot overrides the generic img max-width: 100%. */
+    max-width: min(100%, 26rem);
 }
 
 .shot {
