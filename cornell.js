@@ -264,6 +264,21 @@
     if (reduce && reduce.matches) { draw(BASE_ANGLE); return; }
 
     var mode = null, teardown = null, io = null, visible = true;
+    // Spin state outlives spinMode(), which is rebuilt every time the box
+    // scrolls in and out of view. The autospin is read off the wall clock
+    // rather than accumulated per frame, so the box keeps turning while it is
+    // off-screen and is where it should be when you scroll back -- not merely
+    // where it was when it left. spinBase is what dragging has added.
+    var spinT0 = null, spinBase = 0;
+    function nowMs() {
+      return (window.performance && window.performance.now)
+        ? window.performance.now() : Date.now();
+    }
+    function spinAngle() {
+      var t = nowMs();
+      if (spinT0 === null) spinT0 = t;
+      return BASE_ANGLE + SPIN_DIR * ((t - spinT0) / AUTOSPIN_MS * Math.PI * 2) + spinBase;
+    }
 
     // ---- shared -----------------------------------------------------------
     // Cached. Reading it live made the rotation snap on iOS: innerHeight
@@ -418,17 +433,15 @@
     // competes with the browser's scroller and the angle never depends on
     // maxScroll -- which is what made it snap when iOS resized mid-scroll.
     function spinMode() {
-      var loop = null, t0 = null, base = 0;      // base: radians added by dragging
-      var held = false, lastX = 0, lastT = 0, vel = 0, paused = 0;
+      var loop = null;
+      var held = false, lastX = 0, lastT = 0, vel = 0;
 
-      function frame(t) {
-        if (t0 === null) t0 = t;
+      function frame() {
         if (!held) {
-          if (Math.abs(vel) > 0.0004) { base += vel; vel *= SPIN_FRICTION; }
+          if (Math.abs(vel) > 0.0004) { spinBase += vel; vel *= SPIN_FRICTION; }
           else vel = 0;
         }
-        var auto = held ? paused : (t - t0 - paused) / AUTOSPIN_MS * Math.PI * 2;
-        draw(BASE_ANGLE + SPIN_DIR * auto + base);
+        draw(spinAngle());
         loop = requestAnimationFrame(frame);
       }
       function down(e) {
@@ -441,7 +454,7 @@
         var dx = e.clientX - lastX, dt = Math.max(1, t - lastT);
         lastX = e.clientX; lastT = t;
         var r = dx * DRAG_RAD;
-        base += r;
+        spinBase += r;
         vel = vel * 0.7 + (r / dt * 16) * 0.3;
         e.preventDefault();
       }
@@ -451,19 +464,24 @@
         if (cv.releasePointerCapture) { try { cv.releasePointerCapture(e.pointerId); } catch (_) {} }
       }
 
-      if (window.PointerEvent) {
+      // Touch is deliberately non-interactive here: the box just spins. The
+      // handlers are not merely unused on a phone, they are harmful -- move()
+      // calls preventDefault, so a swipe beginning on the box would have part
+      // of its scroll eaten.
+      var interactive = window.PointerEvent && !coarsePointer();
+      if (interactive) {
         cv.addEventListener('pointerdown', down);
         cv.addEventListener('pointermove', move);
         cv.addEventListener('pointerup', up);
         cv.addEventListener('pointercancel', up);
         cv.addEventListener('pointerleave', up);
       }
-      if (visible) loop = requestAnimationFrame(frame);
+      if (visible) { draw(spinAngle()); loop = requestAnimationFrame(frame); }
 
       return function () {
         if (loop !== null) cancelAnimationFrame(loop);
         loop = null;
-        if (window.PointerEvent) {
+        if (interactive) {
           cv.removeEventListener('pointerdown', down);
           cv.removeEventListener('pointermove', move);
           cv.removeEventListener('pointerup', up);
@@ -490,12 +508,12 @@
     if (window.IntersectionObserver) {
       io = new IntersectionObserver(function (es) {
         es.forEach(function (e) { pause(e.isIntersecting); });
-      });
+      }, { rootMargin: '200px' });
       io.observe(cv);
     }
 
     // CSS swaps layout on rotation; the renderer has to follow it.
-    function onResize() { invalidateMax(); alignToHeading(); measure(); apply(); draw(mode === 'spin' ? BASE_ANGLE : angle()); }
+    function onResize() { invalidateMax(); alignToHeading(); measure(); apply(); draw(mode === 'spin' ? spinAngle() : angle()); }
     window.addEventListener('resize', onResize);
     window.addEventListener('orientationchange', function () { setTimeout(onResize, 120); });
 
